@@ -1,11 +1,18 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace Contracts
 {
     [ServiceContract (CallbackContract = typeof(ILongRunningCallback))]
     public interface ILongRunningService
     {
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
+        void Connect();
+
+        [OperationContract]
+        void Disconnect();
+
+        [OperationContract]
         void StartProcess();
     }
 
@@ -13,6 +20,12 @@ namespace Contracts
     public interface ILongRunningCallback
     {
         [OperationContract]
-        bool ReportPercentage(decimal percentage);
+        bool ReportState(State state);
+    }
+
+    public class State
+    {
+        public decimal Percentage { get; set; }
+        public int GeneratedNumbers { get; set; }
     }
 }

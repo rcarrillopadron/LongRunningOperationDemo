@@ -19,10 +19,10 @@ namespace TheWebApi.Controllers
             return Ok("Stopped");
         }
 
-        [HttpGet, Route("api/status")]
-        public IHttpActionResult GetStatus()
+        [HttpGet, Route("api/state")]
+        public IHttpActionResult GetState()
         {
-            return Ok(new {LastGeneratedNumber = WebApiApplication.PercentageCompleted});
+            return Ok(new {State = WebApiApplication.CurrentState});
         }
     }
 }

@@ -2,11 +2,12 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Long Running Demo</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="MainController as vm">
     <div class="container body-content">
@@ -28,9 +29,9 @@
                         <h4>Status</h4>
                         <p>
                             <div ng-switch="vm.status">
-                                <div class="label label-info" ng-switch-when="starting">Starting</div>
+                                <div class="label label-lg label-info" ng-switch-when="starting">Starting <i class="fa fa-spinner fa-spin"></i></div>
                                 <div class="label label-success" ng-switch-when="started">Started</div>
-                                <div class="label label-warning" ng-switch-when="stopping">Stopping</div>
+                                <div class="label label-warning" ng-switch-when="stopping">Stopping <i class="fa fa-spinner fa-spin"></i></div>
                                 <div class="label label-danger" ng-switch-when="stopped">Stopped</div>
                                 <div class="label label-primary" ng-switch-default>Not started</div>
                             </div>
@@ -41,10 +42,8 @@
             <div class="col-xs-6">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h4>Last generated number: <span ng-bind="vm.lastGeneratedNumber">-</span></h4>
-                        <p>
-                            <button class="btn btn-xs btn-primary" ng-click="vm.getLastGeneratedNumber()">Refresh</button>
-                        </p>
+                        <h4>State</h4>
+                        <pre>{{vm.state | json }}</pre>
                     </div>
                 </div>
             </div>

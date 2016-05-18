@@ -3,13 +3,13 @@
 
     angular.module('app', [])
         .factory('api', ['$log', '$http', longRunningService])
-        .controller('MainController', ['$log', 'api', mainController]);
+        .controller('MainController', ['$log', 'api', '$interval', '$scope', mainController]);
 
     function longRunningService($log, $http) {
         return {
             start: start,
             stop: stop,
-            getStatus: getStatus
+            getState: getState
         };
 
         function start() {
@@ -20,25 +20,34 @@
             return $http.post('api/stop');
         }
 
-        function getStatus() {
-            return $http.get('api/status')
+        function getState() {
+            return $http.get('api/state')
                 .then(function(result) {
-                    return result.data.lastGeneratedNumber;
+                    return result.data;
                 });
         }
     }
 
-    function mainController($log, api) {
-        var vm = this;
+    function mainController($log, api, $interval, $scope) {
+        var vm = this,
+            _interval = null;
 
         vm.start = start;
         vm.stop = stop;
-        vm.getLastGeneratedNumber = getLastGeneratedNumber;
+        vm.getState = getState;
+
+        $scope.$on('$destroy',
+            function () {
+                if (_interval !== null) {
+                    cancelInterval();
+                }
+            });
 
         function start() {
             vm.status = 'starting';
             api.start().then(function() {
                 vm.status = 'started';
+                _interval = $interval(getState, 5000);
             }, onError);
         }
 
@@ -46,18 +55,24 @@
             vm.status = 'stopping';
             api.stop().then(function() {
                 vm.status = 'stopped';
+                cancelInterval();
             }, onError);
         }
 
-        function getLastGeneratedNumber() {
-            api.getStatus()
+        function getState() {
+            api.getState()
                 .then(function (result) {
-                    vm.lastGeneratedNumber = result;
+                    vm.state = result;
                 }, onError);
         }
 
         function onError(error) {
             vm.error = error;
+        }
+
+        function cancelInterval() {
+            $interval.cancel(_interval);
+            _interval = null;
         }
     }
 })();

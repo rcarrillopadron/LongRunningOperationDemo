@@ -9,6 +9,16 @@ namespace TheClientProxy
         {
         }
 
+        public void Connect()
+        {
+            Channel.Connect();
+        }
+
+        public void Disconnect()
+        {
+            Channel.Disconnect();
+        }
+
         public void StartProcess()
         {
             Channel.StartProcess();

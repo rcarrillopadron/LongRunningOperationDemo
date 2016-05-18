@@ -8,7 +8,7 @@ namespace TheHostAsAConsoleApp
     {
         static void Main()
         {
-            var host = new ServiceHost(typeof(LongRunningImpl));
+            var host = new ServiceHost(typeof(LongRunningManager));
             host.Open();
 
             Console.WriteLine("Service started. Press ENTER to exit");
