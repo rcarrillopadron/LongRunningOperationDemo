@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 namespace Contracts
 {
@@ -14,18 +13,5 @@ namespace Contracts
 
         [OperationContract]
         void StartProcess();
-    }
-
-    [ServiceContract]
-    public interface ILongRunningCallback
-    {
-        [OperationContract]
-        bool ReportState(State state);
-    }
-
-    public class State
-    {
-        public decimal Percentage { get; set; }
-        public int GeneratedNumbers { get; set; }
     }
 }

@@ -55,7 +55,6 @@ namespace LongRunningContractImplementation
         {
             var random = new Random(10000);
 
-            bool requestCancel = false;
             const int NUMBER_OF_ITERATIONS = 100;
             for (int i = 0; i < NUMBER_OF_ITERATIONS; i++)
             {
@@ -80,22 +79,6 @@ namespace LongRunningContractImplementation
                         }
                     }
                 }
-
-//                ILongRunningCallback callback = OperationContext.Current.GetCallbackChannel<ILongRunningCallback>();
-//                if (callback != null)
-//                {
-//                    try
-//                    {
-//                        requestCancel = callback.ReportPercentage(i / NUMBER_OF_ITERATIONS);
-//                    }
-//                    catch (CommunicationObjectAbortedException)
-//                    {
-//                        requestCancel = true;
-//                    }
-//                }
-//
-//                if (requestCancel)
-//                    break;
 
                 Thread.Sleep(1000);
             }

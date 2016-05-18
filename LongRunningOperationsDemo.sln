@@ -13,16 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheHostAsAConsoleApp", "The
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWebApi", "TheWebApi\TheWebApi.csproj", "{7D59082D-E733-445C-86F5-14DACF734E90}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{54F85D11-D3DD-4AD1-8757-C9370F6BA474}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApp", "ConsoleApp", "{BA2AD744-5783-4ACA-8EC6-39C48F87ADBF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{01554AC8-BDEC-425E-B28D-8F922B128737}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client side", "Client side", "{13E7E8A3-6C58-4BCE-94BE-C1CA279E2AF8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service Host", "Service Host", "{D96C92CB-C20F-4ED1-919F-50AEC354A097}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,10 +42,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E554E6BB-1487-4E71-8436-CE1F5D153AA8} = {01554AC8-BDEC-425E-B28D-8F922B128737}
-		{90952151-B4AA-4370-B051-01CEB692B206} = {D96C92CB-C20F-4ED1-919F-50AEC354A097}
-		{7D59082D-E733-445C-86F5-14DACF734E90} = {54F85D11-D3DD-4AD1-8757-C9370F6BA474}
 	EndGlobalSection
 EndGlobal
