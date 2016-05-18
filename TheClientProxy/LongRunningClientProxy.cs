@@ -9,9 +9,9 @@ namespace TheClientProxy
         {
         }
 
-        public void Connect()
+        public bool Connect()
         {
-            Channel.Connect();
+            return Channel.Connect();
         }
 
         public void Disconnect()

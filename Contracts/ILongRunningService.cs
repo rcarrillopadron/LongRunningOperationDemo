@@ -6,7 +6,7 @@ namespace Contracts
     public interface ILongRunningService
     {
         [OperationContract]
-        void Connect();
+        bool Connect();
 
         [OperationContract]
         void Disconnect();

@@ -47,7 +47,7 @@
             vm.status = 'starting';
             api.start().then(function() {
                 vm.status = 'started';
-                _interval = $interval(getState, 5000);
+                _interval = $interval(getState, 500);
             }, onError);
         }
 
