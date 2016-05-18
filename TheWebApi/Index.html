@@ -31,8 +31,9 @@
                             <div ng-switch="vm.status">
                                 <div class="label label-lg label-info" ng-switch-when="starting">Starting <i class="fa fa-spinner fa-spin"></i></div>
                                 <div class="label label-success" ng-switch-when="started">Started</div>
-                                <div class="label label-warning" ng-switch-when="stopping">Stopping <i class="fa fa-spinner fa-spin"></i></div>
-                                <div class="label label-danger" ng-switch-when="stopped">Stopped</div>
+                                <div class="label label-info" ng-switch-when="stopping">Stopping <i class="fa fa-spinner fa-spin"></i></div>
+                                <div class="label label-primary" ng-switch-when="stopped">Stopped</div>
+                                <div class="label label-danger" ng-switch-when="failed">Failed</div>
                                 <div class="label label-primary" ng-switch-default>Not started</div>
                             </div>
                         </p>

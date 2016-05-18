@@ -67,6 +67,7 @@
         }
 
         function onError(error) {
+            vm.status = 'failed';
             vm.error = error;
         }
 
