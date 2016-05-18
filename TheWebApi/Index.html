@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Long Running Demo</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700"/>
+</head>
+<body ng-controller="MainController as vm">
+    <div class="container body-content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Long Running Demo</a>
+                </div>
+                <form class="navbar-form navbar-right">
+                    <button class="btn btn-success" ng-click="vm.start()" ng-class="{'ng-hide': vm.status === 'started' }">Start</button>
+                    <button class="btn btn-danger" ng-click="vm.stop()" ng-class="{'ng-hide': vm.status !== 'started' }">Stop</button>
+                </form>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>Status</h4>
+                        <p>
+                            <div ng-switch="vm.status">
+                                <div class="label label-info" ng-switch-when="starting">Starting</div>
+                                <div class="label label-success" ng-switch-when="started">Started</div>
+                                <div class="label label-warning" ng-switch-when="stopping">Stopping</div>
+                                <div class="label label-danger" ng-switch-when="stopped">Stopped</div>
+                                <div class="label label-primary" ng-switch-default>Not started</div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>Last generated number: <span ng-bind="vm.lastGeneratedNumber">-</span></h4>
+                        <p>
+                            <button class="btn btn-xs btn-primary" ng-click="vm.getLastGeneratedNumber()">Refresh</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ng-hide" ng-show="vm.error">
+            <div class="col-xs-12">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1>:(</h1>
+                    <pre>{{vm.error | json }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="//github.com/rcarrillopadron">By Roberto</a>
+    </footer>
+    <script src="//code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

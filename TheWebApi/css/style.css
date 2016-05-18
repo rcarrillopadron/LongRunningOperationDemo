@@ -1,0 +1,25 @@
+﻿html {
+    font-family: Roboto, Verdana, sans-seri;
+}
+
+html, body {
+    height: 100%;
+    background-color: #b1c6c9;
+}
+
+.body-content {
+    min-height: 100%;
+    margin-top: 0;
+    margin-bottom: -30px;
+}
+
+footer {
+    height: 20px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+pre {
+    white-space: pre-wrap;
+}
